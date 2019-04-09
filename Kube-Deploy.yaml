@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: templateapp-deployment
+  labels:
+    app: templateapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: templateapp
+  template:
+    metadata:
+      labels:
+        app: templateapp
+    spec:
+      containers:
+      - name: templateapp
+        image: templateapp:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+
+--
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: templateapp-service
+spec:
+  selector:
+    app: templateapp
+  ports:
+  - protocol: TCP
+    port: 8098
+    targetPort: 8080
+  type: NodePort

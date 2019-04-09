@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scanPeriod="10 seconds" scan="true">
+
+    <appender name="consoleNameValue" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>%d{ISO8601} %-5r | %-5p | %c{3}.%M#%L ["%t" %X] %m %n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.boot.web.starter.template.springboottemplate" level="info" additivity="false">
+        <appender-ref ref="consoleNameValue"/>
+    </logger>
+    <logger name="com.boot.web.starter.template.springboottemplate.config" level="debug" additivity="false">
+        <appender-ref ref="consoleNameValue"/>
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="consoleNameValue"/>
+    </root>
+
+</configuration>

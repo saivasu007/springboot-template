@@ -1,0 +1,7 @@
+# properties
+springboot:
+  template:
+    properties:
+      domain: localhost
+      env: local
+      desc: This is springboot template project
