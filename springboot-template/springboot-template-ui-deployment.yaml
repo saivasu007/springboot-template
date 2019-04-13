@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: springboot-template-ui
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: springboot-template-ui
+  template:
+    metadata:
+      labels:
+        app: springboot-template-ui
+    spec:
+      containers:
+      - image: template/springboottemplate
+        imagePullPolicy: IfNotPresent
+        name: springboot-template-ui
+        ports:
+        - containerPort: 8080
+
